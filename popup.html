@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 320px;
+            padding: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+        }
+        
+        h2 {
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4CAF50;
+        }
+        
+        .status-dot.inactive {
+            background: #ff5252;
+        }
+        
+        .toggle-container, .settings-container {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .toggle-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .toggle-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            background: #ccc;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .toggle-switch.active {
+            background: #4CAF50;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(26px);
+        }
+        
+        .settings-header {
+            font-weight: 500;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .radio-option:hover {
+            background: #f5f5f5;
+        }
+        
+        .radio-option input[type="radio"] {
+            margin-top: 2px;
+            cursor: pointer;
+        }
+        
+        .radio-label {
+            flex: 1;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        .radio-label-title {
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .radio-label-desc {
+            color: #666;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        button:hover {
+            background: #555;
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .info {
+            margin-top: 12px;
+            padding: 10px;
+            background: #e3f2fd;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #1976d2;
+            line-height: 1.4;
+        }
+        
+        .error {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .success {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <h2>
+        <span class="status-dot" id="statusDot"></span>
+        Claude Opus Autoswitch
+    </h2>
+    
+    <div class="toggle-container">
+        <div class="toggle-row">
+            <span>Automatisch umschalten</span>
+            <div class="toggle-switch" id="toggleSwitch">
+                <div class="toggle-slider"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="settings-container">
+        <span class="settings-header">Chat-Erkennungs-Sensitivität</span>
+        <div class="radio-group">
+            <label class="radio-option">
+                <input type="radio" name="sensitivity" value="high" id="sensitivityHigh">
+                <div class="radio-label">
+                    <div class="radio-label-title">Hoch</div>
+                    <div class="radio-label-desc">Wechselt nicht, wenn Text im Eingabefeld ist</div>
+                </div>
+            </label>
+            <label class="radio-option">
+                <input type="radio" name="sensitivity" value="low" id="sensitivityLow">
+                <div class="radio-label">
+                    <div class="radio-label-title">Niedrig</div>
+                    <div class="radio-label-desc">Wechselt nur nicht, wenn Nachrichten gesendet wurden</div>
+                </div>
+            </label>
+        </div>
+    </div>
+    
+    <button id="manualSwitch">Jetzt auf Opus umschalten</button>
+    
+    <div class="info" id="infoBox">
+        Addon ist aktiv und schaltet automatisch auf Claude Opus 4 um, wenn du Claude.ai besuchst.
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
