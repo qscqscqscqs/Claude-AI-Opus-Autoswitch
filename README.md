@@ -57,3 +57,7 @@ Fehlersuche
 - Das Modell schaltet sich zurück auf Sonnet: Bei großen Änderungen an der Webseite kann das Add‑on die Schaltfläche gelegentlich nicht finden. Aktualisieren Sie das Add‑on auf die neueste Version oder verringern Sie die Sensitivität.
 - Fehler „Umschaltung fehlgeschlagen“: Der manuelle Wechsel benötigt eine aktive Claude‑Registerkarte. Öffnen Sie einen Chat und versuchen Sie es erneut.
 - Debugging: Sollten unerwartete Probleme auftreten, öffnen Sie die Entwickler‑Werkzeuge Ihres Browsers (F12) und prüfen Sie die Konsole. Fehlermeldungen des Add‑ons helfen dabei, das Problem zu diagnostizieren.
+
+- Lizenz
+
+Dieses Projekt ist unter der Mozilla Public License 2.0 lizenziert
