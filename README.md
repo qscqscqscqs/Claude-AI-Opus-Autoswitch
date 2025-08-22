@@ -59,4 +59,5 @@ Fehlersuche
 - Debugging: Sollten unerwartete Probleme auftreten, öffnen Sie die Entwickler‑Werkzeuge Ihres Browsers (F12) und prüfen Sie die Konsole. Fehlermeldungen des Add‑ons helfen dabei, das Problem zu diagnostizieren.
 
 Lizenz
+
 Dieses Projekt ist unter der Mozilla Public License 2.0 lizenziert
